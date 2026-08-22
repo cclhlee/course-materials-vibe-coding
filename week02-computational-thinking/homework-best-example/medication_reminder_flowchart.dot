@@ -1,0 +1,36 @@
+digraph MedicationReminder {
+    rankdir=TB;
+    ranksep=0.35;
+    nodesep=0.3;
+    fontname="Noto Sans CJK TC";
+    node [fontname="Noto Sans CJK TC", fontsize=20, style=filled, margin="0.15,0.1"];
+    edge [fontname="Noto Sans CJK TC", fontsize=16];
+
+    start [label="開始", shape=ellipse, fillcolor="#01696F", fontcolor=white];
+    loopstart [label="迴圈界限：每日 08:00 / 13:00 / 20:00（三個服藥時段）", shape=hexagon, fillcolor="#FFC553"];
+    checkdose [label="讀取今日該時段是否已有『已服藥』紀錄？", shape=diamond, fillcolor="#BCE2E7"];
+    alreadytaken [label="不重複提醒，迴圈進入下一時段", shape=box, fillcolor="#F9F8F5"];
+    sendnotify [label="發送提醒通知（App推播＋簡訊備援）", shape=box, fillcolor="#F9F8F5"];
+    manualcheck [label="人工作業：家屬／照護者於30分鐘內電話確認長者是否服藥", shape=trapezium, fillcolor="#944454", fontcolor=white];
+    responded [label="長者是否在30分鐘內回應『已服藥』？", shape=diamond, fillcolor="#BCE2E7"];
+    recordtaken [label="寫入服藥紀錄（含時間戳記）", shape=box, fillcolor="#F9F8F5"];
+    predefined [label="呼叫子程序：『高風險未服藥通報流程』（詳見附錄B，另行定義）", shape=box, peripheries=2, fillcolor="#20808D", fontcolor=white];
+    loopend [label="迴圈界限結束：遞增至下一服藥時段", shape=hexagon, fillcolor="#FFC553"];
+    endnode [label="結束（當日流程完成）", shape=ellipse, fillcolor="#01696F", fontcolor=white];
+
+    start -> loopstart;
+    loopstart -> checkdose;
+    checkdose -> alreadytaken [label="是"];
+    checkdose -> sendnotify [label="否"];
+    sendnotify -> manualcheck;
+    manualcheck -> responded;
+    responded -> recordtaken [label="是"];
+    responded -> predefined [label="否"];
+    recordtaken -> loopend;
+    predefined -> loopend;
+    alreadytaken -> loopend;
+    loopend -> loopstart [label="尚有未檢查時段", style=dashed];
+    loopend -> endnode [label="三個時段皆已檢查"];
+
+    { rank=same; alreadytaken; recordtaken; predefined; }
+}
