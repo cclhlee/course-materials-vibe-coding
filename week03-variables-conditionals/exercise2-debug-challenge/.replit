@@ -1,0 +1,3 @@
+entrypoint = "buggy.js"
+run = "node buggy.js"
+modules = ["nodejs-20"]
