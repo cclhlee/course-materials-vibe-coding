@@ -28,3 +28,15 @@
 ## 資料庫SQL檔案
 
 第7、8週牽涉資料庫的練習，額外提供可直接於 psql／Replit PostgreSQL 執行的 `.sql` 指令檔，見 `week07-sql-database-intro/` 與 `week08-midterm-project-proposal/` 資料夾。
+
+## 第9-15週（模組二：延伸專案實作）
+
+- [第9週：專案啟動：需求分析與資料庫schema設計](./week09-project-kickoff-schema-design/)
+- [第10週：後端開發：AI協作實作CRUD功能](./week10-backend-crud-ai-collab/)
+- [第11週：實作工作坊①：CRUD強化與前後端串接練習](./week11-workshop1-crud-integration/)
+- [第12週：前後端整合、使用者驗證與資安基礎](./week12-auth-security-basics/)
+- [第13週：實作工作坊②：資安修補與多重視角同儕程式碼審查](./week13-workshop2-security-peer-review/)
+- [第14週：部署上線與文件撰寫](./week14-deployment-documentation/)
+- [第15週：實作工作坊③與個別Code Interview](./week15-workshop3-code-interview/)
+
+模組二各週延續「用藥提醒系統」案例，部分練習屬於討論／口頭／書面型活動（無獨立程式檔，直接參考各週README的操作步驟與測試資料），有程式碼的練習則同樣附上起始檔／解答檔與`.replit`設定。
