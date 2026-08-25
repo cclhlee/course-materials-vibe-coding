@@ -54,19 +54,3 @@ SELECT setval(pg_get_serial_sequence('病患', '病患id'), (SELECT MAX(病患id
 SELECT setval(pg_get_serial_sequence('掛號記錄', '掛號id'), (SELECT MAX(掛號id) FROM 掛號記錄));
 SELECT setval(pg_get_serial_sequence('用藥紀錄', '用藥id'), (SELECT MAX(用藥id) FROM 用藥紀錄));
 
--- ------------------------------------------------------------
--- 3. 動手實作練習：參考解答查詢（對應簡報「解答：參考範例程式碼」頁）
--- ------------------------------------------------------------
-
--- 查詢王小明（病患ID=1）的所有掛號記錄，並關聯出對應的用藥紀錄
-SELECT 掛號記錄.掛號日期, 掛號記錄.科別, 用藥紀錄.藥品名稱, 用藥紀錄.劑量
-FROM 掛號記錄
-JOIN 用藥紀錄 ON 掛號記錄.掛號ID = 用藥紀錄.掛號ID
-WHERE 掛號記錄.病患ID = 1;
-
--- 延伸練習（對應討論問題）：查詢所有科別為家醫科、且用藥種類包含 Metformin 的病患姓名
-SELECT DISTINCT 病患.姓名
-FROM 病患
-JOIN 掛號記錄 ON 病患.病患ID = 掛號記錄.病患ID
-JOIN 用藥紀錄 ON 掛號記錄.掛號ID = 用藥紀錄.掛號ID
-WHERE 掛號記錄.科別 = '家醫科' AND 用藥紀錄.藥品名稱 = 'Metformin';
