@@ -41,6 +41,6 @@
 - [第12週：前後端整合、使用者驗證與資安基礎](./week12-auth-security-basics/)
 - [第13週：實作工作坊②：資安修補與多重視角同儕程式碼審查](./week13-workshop2-security-peer-review/)
 - [第14週：部署上線與文件撰寫](./week14-deployment-documentation/)
-- [第15週：實作工作坊③與個別Code Interview](./week15-workshop3-code-interview/)
+- [第15週：實作工作坊③：專案完整性檢核與繳交前準備](./week15-workshop3-project-checkup/)
 
 模組二各週延續「用藥提醒系統」案例，部分練習屬於討論／口頭／書面型活動（無獨立程式檔，直接參考各週README的操作步驟與測試資料），有程式碼的練習則同樣附上起始檔與`.replit`設定；參考解答同樣另存於教師專用的私有repo，見上方「參考解答（私有repo）」說明。
